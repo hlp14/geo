@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="base.css" />
+<style type="text/css">
+/*
+
+	-- -- -- -- -- -- --
+	css sprites2
+	nav style, with style for scripted elements
+
+	http://www.alistapart.com/articles/sprites2
+	-- -- -- -- -- -- --
+	
+*/
+
+
+body {
+	color: #000;
+	background: #fff;
+}
+
+.nav {
+	width: 401px;
+	height: 48px;
+	background: url(images/blue-nav.gif) no-repeat;
+	position: absolute;
+	top: 100px;
+	left: 100px;
+}
+.nav li {
+	display: inline;
+}
+.nav li a:link, .nav li a:visited {
+	position: absolute;
+	top: 0;
+	height: 48px;
+	text-indent: -9000px;
+	overflow: hidden;
+	z-index: 10;
+}
+	.nav .home a:link, .nav .home a:visited {
+		left: 23px;
+		width: 76px;
+	}
+	.nav .home a:hover, .nav .home a:focus {
+		background: url(images/blue-nav.gif) no-repeat -23px -49px;
+	}
+	.nav .home a:active {
+		background: url(images/blue-nav.gif) no-repeat -23px -98px;
+	}
+	.current-home .home a:link, .current-home .home a:visited {
+		background: url(images/blue-nav.gif) no-repeat -23px -147px;
+		cursor: default;
+	}
+	.nav-home, .nav-home-click {
+		position: absolute;
+		top: 0;
+		left: 23px;
+		width: 76px;
+		height: 48px;
+		background: url(images/blue-nav.gif) no-repeat -23px -49px;
+	}
+	.nav-home-click {
+		background: url(images/blue-nav.gif) no-repeat -23px -98px;
+	}
+
+
+
+	.nav .about a:link, .nav .about a:visited {
+		left: 100px;
+		width: 82px;
+	}
+	.nav .about a:hover, .nav .about a:focus {
+		background: url(images/blue-nav.gif) no-repeat -100px -49px;
+	}
+	.nav .about a:active {
+		background: url(images/blue-nav.gif) no-repeat -100px -98px;
+	}
+	.current-about .about a:link, .current-about .about a:visited {
+		background: url(images/blue-nav.gif) no-repeat -100px -147px;
+		cursor: default;
+	}
+	.nav-about, .nav-about-click {
+		position: absolute;
+		top: 0;
+		left: 100px;
+		width: 82px;
+		height: 48px;
+		background: url(images/blue-nav.gif) no-repeat -100px -49px;
+	}
+	.nav-about-click {
+		background: url(images/blue-nav.gif) no-repeat -100px -98px;
+	}
+
+
+
+	.nav .services a:link, .nav .services a:visited {
+		left: 183px;
+		width: 97px;
+	}
+	.nav .services a:hover, .nav .services a:focus {
+		background: url(images/blue-nav.gif) no-repeat -183px -49px;
+	}
+	.nav .services a:active {
+		background: url(images/blue-nav.gif) no-repeat -183px -98px;
+	}
+	.current-services .services a:link, .current-services .services a:visited {
+		background: url(images/blue-nav.gif) no-repeat -183px -147px;
+		cursor: default;
+	}
+	.nav-services, .nav-services-click {
+		position: absolute;
+		top: 0;
+		left: 183px;
+		width: 97px;
+		height: 48px;
+		background: url(images/blue-nav.gif) no-repeat -183px -49px;
+	}
+	.nav-services-click {
+		background: url(images/blue-nav.gif) no-repeat -183px -98px;
+	}
+
+
+	
+	.nav .contact a:link, .nav .contact a:visited {
+		left: 281px;
+		width: 97px;
+	}
+	.nav .contact a:hover, .nav .contact a:focus {
+		background: url(images/blue-nav.gif) no-repeat -281px -49px;
+	}
+	.nav .contact a:active {
+		background: url(images/blue-nav.gif) no-repeat -281px -98px;
+	}
+	.current-contact .contact a:link, .current-contact .contact a:visited {
+		background: url(images/blue-nav.gif) no-repeat -281px -147px;
+		cursor: default;
+	}
+	.nav-contact, .nav-contact-click {
+		position: absolute;
+		top: 0;
+		left: 281px;
+		width: 97px;
+		height: 48px;
+		background: url(images/blue-nav.gif) no-repeat -281px -49px;
+	}
+	.nav-contact-click {
+		background: url(images/blue-nav.gif) no-repeat -281px -98px;
+	}
+
+</style>
+</head>
+
+<body>
+<ul class="nav current-about">
+    <li class="home"><a href="#">Home</a></li>
+    <li class="about"><a href="#">About</a></li>
+    <li class="services"><a href="#">Services</a></li>
+    <li class="contact"><a href="#">Contact</a></li>
+</ul>
+
+
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="sprites2.js"></script>
+<script type="text/javascript">
+
+	$(document).ready(function(){
+	
+		// generateSprites arguments: 
+		// 1st - parent class (the main class on the parent ul), with preceding period
+		// 2nd - selected prefix (eg. for a selected class of "selected-about", use "selected-" as the value)
+		// 3rd - :active state toggle, set to true if you've defined :active states (and the jQuery equivalent) in your CSS
+		// 4th - animation speed, in milliseconds (eg. 300 = 0.3 seconds)
+		// 5th - animation style, as a string. Set to "slide" or "fade" (defaults to "fade")
+		
+		// example usage:
+		// generateSprites(".navigation", "selected-", true, 300, "fade");
+		// generateSprites(".top-nav", "position-", true, 200, "slide");
+		// generateSprites(".sidebar-nav", "current-", false, 150, "fade");
+
+		
+		generateSprites(".nav", "current-", true, 150, "slide");
+
+	});
+
+	</script>
+</body>
+</html>
+
+
+
+
+
